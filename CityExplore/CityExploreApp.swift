@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+internal import CoreData
 
 @main
-struct CityExploreApp: App {
+struct CityExplorerApp: App {
+    let persistenceController = PersistenceController.shared
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
+

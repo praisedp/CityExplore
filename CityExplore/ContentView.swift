@@ -1,24 +1,14 @@
-//
-//  ContentView.swift
-//  CityExplore
-//
-//  Created by Pasan Perera on 2025-11-21.
-//
-
 import SwiftUI
+internal import CoreData
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        MainTabView()
     }
 }
 
 #Preview {
     ContentView()
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
+
